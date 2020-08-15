@@ -1,3 +1,10 @@
+def resource_path(relative_path):
+	absolute_path=os.path.abspath(__file__)
+	root_path=os.path.dirname(absolute_path)
+	base_path=getattr(sys,'MEIPASS',root_path)
+	return os.path.join(base_path,relative_path)
+
+#Imports
 from tkinter import *
 import tkinter.messagebox as box
 
