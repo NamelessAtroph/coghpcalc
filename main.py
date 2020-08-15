@@ -1,3 +1,10 @@
+def resource_path(relative_path):
+	absolute_path=os.path.abspath(__file__)
+	root_path=os.path.dirname(absolute_path)
+	base_path=getattr(sys,'MEIPASS',root_path)
+	return os.path.join(base_path,relative_path)
+
+#Imports
 from tkinter import *
 import tkinter.messagebox as box
 
@@ -13,6 +20,9 @@ global label
 global box
 window=Tk()
 window.title("Cog Health Calculator")
+window.resizable(0,0)
+ico=PhotoImage(file='img/coggear.ico')
+window.iconphoto(True, ico)
 lvl=IntVar()
 hp=IntVar()
 entry=Entry(window)
@@ -29,7 +39,7 @@ def calc():
 	lvl=int(lvl)
 	if checked.get()==1:
 		if lvl<1 or lvl>12:
-			box.showerror("Please choose a level that cogs can be.")
+			box.showerror("Error!","Please choose a level that cogs can be.")
 		elif lvl==12:
 			hp=400
 			label.configure(text=str(hp))
@@ -38,7 +48,7 @@ def calc():
 			label.configure(text=hp)
 	else:
 		if lvl<1 or lvl>12:
-			box.showerror("Please choose a level that cogs can be.")
+			box.showerror("Error!","Please choose a level that cogs can be.")
 		elif lvl==12:
 			hp=200
 			label.configure(text=str(hp))
