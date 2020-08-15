@@ -13,6 +13,9 @@ global label
 global box
 window=Tk()
 window.title("Cog Health Calculator")
+window.resizable(0,0)
+ico=PhotoImage(file='img/coggear.ico')
+window.iconphoto(True, ico)
 lvl=IntVar()
 hp=IntVar()
 entry=Entry(window)
