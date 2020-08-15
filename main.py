@@ -1,12 +1,13 @@
+#Imports
+import os
+from tkinter import *
+import tkinter.messagebox as box
+
 def resource_path(relative_path):
 	absolute_path=os.path.abspath(__file__)
 	root_path=os.path.dirname(absolute_path)
 	base_path=getattr(sys,'MEIPASS',root_path)
 	return os.path.join(base_path,relative_path)
-
-#Imports
-from tkinter import *
-import tkinter.messagebox as box
 
 #Base
 global window
@@ -23,13 +24,13 @@ window.title("Cog Health Calculator")
 window.resizable(0,0)
 window.geometry('275x100')
 window.columnconfigure(0, weight=1)
-ico=PhotoImage(file='img/coggear.ico')
+ico=PhotoImage(file=resource_path('img/coggear.ico'))
 window.iconphoto(True, ico)
 lvl=IntVar()
 hp=IntVar()
 entry=Entry(window)
 checked=IntVar()
-v2=Checkbutton(window,text='V2.0?',\
+v2=Checkbutton(window,text='V2.0',\
 variable=checked,onvalue=1,offvalue=0)
 btn=Button(window,text='Calculate')
 label = Label(window,text='...',relief='groove',width=3)
