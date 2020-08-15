@@ -21,6 +21,8 @@ global box
 window=Tk()
 window.title("Cog Health Calculator")
 window.resizable(0,0)
+window.geometry('275x100')
+window.columnconfigure(0, weight=1)
 ico=PhotoImage(file='img/coggear.ico')
 window.iconphoto(True, ico)
 lvl=IntVar()
@@ -37,24 +39,17 @@ def calc():
 	'''Calculates health of a specified cog level'''
 	lvl=entry.get()
 	lvl=int(lvl)
-	if checked.get()==1:
-		if lvl<1 or lvl>12:
-			box.showerror("Error!","Please choose a level that cogs can be.")
-		elif lvl==12:
-			hp=400
-			label.configure(text=str(hp))
-		else:
-			hp=((lvl+1)*(lvl+2))*2
-			label.configure(text=hp)
+	if lvl<1 or lvl>12:
+		box.showerror("Error!","Please choose a level that cogs can be.")
+	if lvl==12:
+		hp=200
 	else:
-		if lvl<1 or lvl>12:
-			box.showerror("Error!","Please choose a level that cogs can be.")
-		elif lvl==12:
-			hp=200
-			label.configure(text=str(hp))
-		else:
-			hp=(lvl+1)*(lvl+2)
-			label.configure(text=str(hp))
+		hp=(lvl+1)*(lvl+2)
+	if checked.get()==1:
+		hp=2*(hp)
+		label.configure(text=str(hp))
+	else:
+		label.configure(text=str(hp))
 
 btn.configure(command=calc)
 
