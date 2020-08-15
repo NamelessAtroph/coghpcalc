@@ -32,7 +32,7 @@ def calc():
 	lvl=int(lvl)
 	if checked.get()==1:
 		if lvl<1 or lvl>12:
-			box.showerror("Please choose a level that cogs can be.")
+			box.showerror("Error!","Please choose a level that cogs can be.")
 		elif lvl==12:
 			hp=400
 			label.configure(text=str(hp))
@@ -41,7 +41,7 @@ def calc():
 			label.configure(text=hp)
 	else:
 		if lvl<1 or lvl>12:
-			box.showerror("Please choose a level that cogs can be.")
+			box.showerror("Error!","Please choose a level that cogs can be.")
 		elif lvl==12:
 			hp=200
 			label.configure(text=str(hp))
